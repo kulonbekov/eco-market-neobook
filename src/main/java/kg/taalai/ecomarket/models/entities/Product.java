@@ -14,7 +14,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "tb_product")
-public class product extends BaseEntity{
+public class Product extends BaseEntity{
 
     @Column(unique = true)
     @NotNull
@@ -24,4 +24,6 @@ public class product extends BaseEntity{
     Double cost;
     @Column(name = "image_url")
     String imageUrl;
+    @Column(name = "description")
+    String description;
 }
