@@ -15,6 +15,8 @@ import lombok.experimental.FieldDefaults;
 @Table(name = "tb_order")
 public class Order extends BaseEntity{
 
+    @Column(name = "phone")
+    String phone;
     @Column(name = "address")
     String address;
     @Column(name = "reference_point")
