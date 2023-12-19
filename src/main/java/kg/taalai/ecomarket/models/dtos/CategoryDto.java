@@ -17,7 +17,6 @@ import java.util.Date;
 public class CategoryDto {
 
     Long id;
-
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
     Date created;
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
