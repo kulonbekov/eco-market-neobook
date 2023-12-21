@@ -13,6 +13,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "tb_order")
+@Builder
 public class Order extends BaseEntity{
 
     @Column(name = "phone")
