@@ -2,10 +2,14 @@ package kg.taalai.ecomarket.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.antlr.v4.runtime.misc.NotNull;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -14,6 +18,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "tb_category")
+@Builder
 public class Category extends BaseEntity{
 
     @Column(unique = true)
@@ -21,4 +26,6 @@ public class Category extends BaseEntity{
     String name;
     @Column(name = "image_url")
     String imageUrl;
+    @ManyToMany(mappedBy = "categories")
+    private Set<Product> products = new HashSet<>();
 }
