@@ -66,4 +66,19 @@ public class ProductServiceImpl implements ProductService {
                 .map(productMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<ProductDto> findProductsByCategory(List<Long> ids) {
+        List<Product> products = productRepo.findDistinctByCategoriesIdIn(ids);
+        return products.stream()
+                .map(productMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public ProductDto save(ProductDto productDto) {
+        return productMapper.toDto(productRepo.save(productMapper.toEntity(productDto)));
+    }
+
+
 }
