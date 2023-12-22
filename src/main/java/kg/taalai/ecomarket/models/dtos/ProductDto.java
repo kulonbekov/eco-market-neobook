@@ -2,6 +2,7 @@ package kg.taalai.ecomarket.models.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import kg.taalai.ecomarket.models.entities.Category;
 import kg.taalai.ecomarket.models.enums.Status;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -27,5 +28,5 @@ public class ProductDto {
     Double cost;
     String imageUrl;
     String description;
-    Set<Long> categoryIds;
+    Set<Category> categories;
 }
