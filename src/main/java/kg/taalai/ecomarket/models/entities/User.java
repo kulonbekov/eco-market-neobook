@@ -1,5 +1,6 @@
 package kg.taalai.ecomarket.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -31,6 +32,7 @@ public class User extends BaseEntity{
     @NotNull
     String password;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     List<Order> orders;
 
 }
