@@ -34,7 +34,7 @@ public class ProductController {
         try{
             return productService.save(productDto);
         }catch (RuntimeException e){
-            throw new RuntimeException("Invalid save product" + productDto.getName());
+            throw new RuntimeException("Invalid save product " + productDto.getName());
         }
     }
 }
