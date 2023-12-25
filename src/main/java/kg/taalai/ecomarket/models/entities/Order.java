@@ -1,5 +1,6 @@
 package kg.taalai.ecomarket.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -27,8 +28,11 @@ public class Order extends BaseEntity{
     String referencePoint;
     @Column(name = "comment")
     String comment;
+    @Column(name = "total_price")
+    Double totalPrice;
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
+    @JsonIgnore
     User user;
     @Override
     protected void onCreate() {
