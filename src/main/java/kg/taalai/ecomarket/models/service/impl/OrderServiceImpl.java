@@ -32,4 +32,9 @@ public class OrderServiceImpl implements OrderService {
                 .map(orderMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<OrderDto> findAll() {
+        return null;
+    }
 }
