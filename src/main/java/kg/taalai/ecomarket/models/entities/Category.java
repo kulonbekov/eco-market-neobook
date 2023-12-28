@@ -1,5 +1,6 @@
 package kg.taalai.ecomarket.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
@@ -27,5 +28,6 @@ public class Category extends BaseEntity{
     @Column(name = "image_url")
     String imageUrl;
     @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
+    @JsonIgnore
+    Set<Product> products = new HashSet<>();
 }
