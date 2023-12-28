@@ -80,5 +80,10 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.toDto(productRepo.save(productMapper.toEntity(productDto)));
     }
 
+    @Override
+    public ProductDto findById(Long id) {
+        return productMapper.toDto(productRepo.getById(id));
+    }
+
 
 }

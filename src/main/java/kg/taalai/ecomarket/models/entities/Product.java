@@ -1,5 +1,6 @@
 package kg.taalai.ecomarket.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -29,6 +30,7 @@ public class Product extends BaseEntity{
     @Column(name = "description")
     String description;
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
