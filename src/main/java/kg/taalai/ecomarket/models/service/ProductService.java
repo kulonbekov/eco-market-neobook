@@ -9,4 +9,5 @@ public interface ProductService {
     List<ProductDto> getAll();
     List<ProductDto> findProductsByCategory(List<Long> ids);
     ProductDto save(ProductDto productDto);
+    ProductDto findById(Long id);
 }
