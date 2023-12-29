@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import kg.taalai.ecomarket.models.dtos.OrderDto;
 import kg.taalai.ecomarket.models.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +21,11 @@ public class OrderController {
 
     @ApiOperation("Добавления нового заказа")
     @PostMapping("/save")
-    OrderDto save(@Validated @RequestBody OrderDto orderDto){
+    OrderDto save(@RequestBody OrderDto orderDto){
         try{
             return orderService.save(orderDto);
         }catch (RuntimeException e){
-            throw new RuntimeException("Invalid save product " + orderDto.getPhone());
+            throw new RuntimeException("Invalid save order " + orderDto.getPhone());
         }
     }
 
@@ -36,6 +37,12 @@ public class OrderController {
         }catch (RuntimeException e){
             throw new RuntimeException("Error retrieving data");
         }
+    }
+
+    @ApiOperation("Получения всех заказов")
+    @GetMapping("/get/all")
+    ResponseEntity<List<OrderDto>> getAllOrders (){
+        return ResponseEntity.ok(orderService.findAll());
     }
 }
 
