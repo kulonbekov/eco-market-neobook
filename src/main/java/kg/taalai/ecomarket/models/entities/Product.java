@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -36,4 +37,7 @@ public class Product extends BaseEntity{
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     Set<Category> categories = new HashSet<>();
+    @ManyToMany(mappedBy = "products")
+    @JsonIgnore
+    List<Order> orders;
 }

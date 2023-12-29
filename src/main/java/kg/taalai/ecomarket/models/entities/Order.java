@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Getter
@@ -34,6 +35,14 @@ public class Order extends BaseEntity{
     @JoinColumn(name="user_id", nullable = false)
     @JsonIgnore
     User user;
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(
+            name = "order_product",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    List<Product> products;
+
     @Override
     protected void onCreate() {
         this.orderNumber = String.format("%08d", counter.getAndIncrement());
